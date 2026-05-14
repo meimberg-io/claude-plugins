@@ -1,0 +1,9 @@
+{
+  "name": "jira",
+  "version": "0.1.0",
+  "description": "Jira workflow skills: jira-setup (one-time per project), then specify → implement → commit. Config lives at .claude/jira.json.",
+  "author": {
+    "name": "Oliver Meimberg",
+    "email": "oli@meimberg.io"
+  }
+}

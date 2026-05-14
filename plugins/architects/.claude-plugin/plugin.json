@@ -1,0 +1,9 @@
+{
+  "name": "architects",
+  "version": "0.1.0",
+  "description": "Architecture-review agent for keeping codebases coherent.",
+  "author": {
+    "name": "Oliver Meimberg",
+    "email": "oli@meimberg.io"
+  }
+}

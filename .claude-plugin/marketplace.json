@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "meimberg",
+  "description": "Meimberg's curated Claude Code plugins — own agents/skills plus vetted forks from the community.",
+  "owner": {
+    "name": "Oliver Meimberg",
+    "email": "oli@meimberg.io"
+  },
+  "plugins": [
+    {
+      "name": "architects",
+      "description": "Architecture-review agent for keeping codebases coherent (SOLID, boundaries, dependencies).",
+      "source": "./plugins/architects",
+      "category": "review",
+      "author": {
+        "name": "Oliver Meimberg"
+      }
+    },
+    {
+      "name": "jira",
+      "description": "Jira workflow skills: jira-setup (one-time per project), then specify → implement → commit. Config lives at .claude/jira.json.",
+      "source": "./plugins/jira",
+      "category": "workflow",
+      "author": {
+        "name": "Oliver Meimberg"
+      }
+    }
+  ]
+}

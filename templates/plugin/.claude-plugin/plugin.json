@@ -1,0 +1,9 @@
+{
+  "name": "TODO-plugin-name",
+  "version": "0.1.0",
+  "description": "TODO one-line description shown in /plugin list and marketplace.json.",
+  "author": {
+    "name": "Oliver Meimberg",
+    "email": "oli@meimberg.io"
+  }
+}
