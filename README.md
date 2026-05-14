@@ -56,6 +56,24 @@ The schema for `.claude/jira.json`:
 
 `projectKey`, `cloudId`, `site` are required; `commitPrefix` defaults to `<projectKey>-`; `statusNames` is only needed if the project uses non-default workflow names.
 
+## Global rules
+
+Cross-cutting behavioral rules that should apply in *every* Claude Code session, project-independent. Lives outside the plugin marketplace because plugins have no auto-loading instructions primitive — instead, a symlink wires `global-rules/CLAUDE.md` into `~/.claude/CLAUDE.md` (user-scope instructions, loaded in every session).
+
+Setup on a new machine:
+
+```bash
+git clone git@github.com:meimberg-io/claude-plugins.git ~/workspace/claude-plugins
+~/workspace/claude-plugins/global-rules/install.sh
+```
+
+The install script is idempotent and refuses to overwrite an existing real file or a symlink pointing elsewhere.
+
+Add a new rule:
+
+1. Drop a markdown file into `global-rules/<category>/<rule-name>.md`.
+2. Reference it from `global-rules/CLAUDE.md` via `@<category>/<rule-name>.md`.
+
 ## Layout
 
 ```
@@ -70,6 +88,10 @@ The schema for `.claude/jira.json`:
 │       ├── skills/               # skill folders (SKILL.md + assets)
 │       ├── commands/             # slash commands
 │       └── hooks/                # optional hooks
+├── global-rules/
+│   ├── CLAUDE.md                 # aggregator — symlinked into ~/.claude/CLAUDE.md
+│   ├── install.sh                # creates the symlink
+│   └── <category>/<rule>.md      # individual rule files, imported via @
 └── README.md
 ```
 
