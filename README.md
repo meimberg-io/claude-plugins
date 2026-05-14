@@ -4,14 +4,28 @@ A personal [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin mar
 
 ## Use it
 
-```bash
-# in Claude Code
+### Claude Code Terminal (CLI)
+
+```
 /plugin marketplace add meimberg-io/claude-plugins
 /plugin install architects@meimberg
 /plugin install jira@meimberg
 ```
 
 Update later with `/plugin marketplace update meimberg`.
+
+### Claude Desktop App (Code mode) and other surfaces without `/plugin`
+
+The plugin marketplace (`/plugin install ...`) only works in Claude Code Terminal. Other surfaces (Claude Desktop App's Code mode, etc.) read user-scope skills/agents/commands directly from `~/.claude/`. To make this repo's plugin contents available there, symlink them in:
+
+```bash
+git clone git@github.com:meimberg-io/claude-plugins.git ~/workspace/claude-plugins
+~/workspace/claude-plugins/install-user-scope.sh
+```
+
+The script iterates over every `plugins/*/skills/*`, `plugins/*/agents/*.md`, `plugins/*/commands/*.md` and symlinks each into `~/.claude/skills/`, `~/.claude/agents/`, `~/.claude/commands/`. Idempotent. Refuses to overwrite a real file/dir or a symlink that points elsewhere — resolve manually (`rm` the conflicting entry) and re-run.
+
+Updates are then automatic: `git pull` in this repo updates every linked skill/agent/command in place.
 
 ## Plugins
 
