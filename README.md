@@ -23,19 +23,21 @@ Architecture-review agent (SOLID, boundaries, dependencies). Use via the agent p
 
 Jira workflow skills, all driven by a per-project config at `<repo-root>/.claude/jira.json`.
 
-**First-time setup in a project** — run the setup skill, it walks you through everything interactively:
+**First-time setup in a project** — run the setup command, it walks you through everything interactively:
 
 ```
-/skill jira-setup
+/jira-setup
 ```
 
 It probes the Atlassian MCP for your sites, lists your Jira projects, reconciles git commit prefixes with Jira project keys (they can diverge — e.g. commits `VOLVE-` vs. project `MIVOLVE`), optionally captures custom workflow status names, and writes `.claude/jira.json`. Requires the Atlassian MCP to be connected.
 
 **Then use:**
 
-- `/skill specify <issue-id>` — turn a Jira issue into a user story with acceptance criteria.
-- `/skill implement <issue-id>` — assess + implement (or enter plan mode for complex work), transition through the workflow.
-- `/skill commit` — stage all changes and commit with `{Jira-Key}: {Jira-Title}`. Does not push.
+- `/specify <issue-id>` — turn a Jira issue into a user story with acceptance criteria. Without an ID: batch-mode over the sprint's `Needs Specification` tickets.
+- `/implement <issue-id>` — assess + implement (or enter plan mode for complex work), transition through the workflow, commit one focused commit.
+- `/commit` — stage all changes and commit with `{Jira-Key}: {Jira-Title}`. Does not push.
+
+These slash commands are thin wrappers around the actual skills (`jira-setup`, `specify`, `implement`, `commit`). The skills also auto-trigger when you describe what you want in natural language ("commit", "implementiere VOLVE-42", "jira einrichten") — slash commands are mainly for discoverability via autocomplete.
 
 The schema for `.claude/jira.json`:
 
