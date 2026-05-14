@@ -8,9 +8,9 @@
   },
   "plugins": [
     {
-      "name": "architects",
-      "description": "Architecture-review agent for keeping codebases coherent (SOLID, boundaries, dependencies).",
-      "source": "./plugins/architects",
+      "name": "review",
+      "description": "PR review agents: silent-failure-hunter (error handling), code-reviewer (CLAUDE.md-aware, confidence-scored), comment-analyzer (doc accuracy). Vendored from anthropics/claude-plugins-official.",
+      "source": "./plugins/review",
       "category": "review",
       "author": {
         "name": "Oliver Meimberg"

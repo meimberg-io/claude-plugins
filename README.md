@@ -8,7 +8,7 @@ A personal [Claude Code](https://docs.claude.com/en/docs/claude-code) plugin mar
 
 ```
 /plugin marketplace add meimberg-io/claude-plugins
-/plugin install architects@meimberg
+/plugin install review@meimberg
 /plugin install jira@meimberg
 ```
 
@@ -29,9 +29,15 @@ Updates are then automatic: `git pull` in this repo updates every linked skill/a
 
 ## Plugins
 
-### `architects`
+### `review`
 
-Architecture-review agent (SOLID, boundaries, dependencies). Use via the agent picker or by asking Claude to review a change for architectural fit.
+PR-review agents vendored from [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) (with project-specific examples generalised):
+
+- `silent-failure-hunter` — non-negotiable rules against silent failures, broad catches, undocumented fallbacks; severity-ranked output.
+- `code-reviewer` — CLAUDE.md-aware reviewer with 0–100 confidence scoring; reports only issues with confidence ≥ 80 to keep signal:noise high.
+- `comment-analyzer` — verifies doc/comment accuracy against actual code, flags comment rot.
+
+Invoked automatically when Claude reasons that a task fits one of them, or you can ask "review this with silent-failure-hunter" / "run a code review on the diff" etc.
 
 ### `jira`
 
@@ -121,4 +127,4 @@ Add a new rule:
 ## Conventions
 
 - **Own work**: author = Oliver Meimberg, no source attribution needed.
-- **Adapted from elsewhere**: keep the upstream attribution as a footer in the file (see `architects/agents/architect-review.md` for the pattern). Don't vendor unmodified — fork the file into this repo so changes don't drift.
+- **Adapted from elsewhere**: keep the upstream attribution as a footer in the file (see `review/agents/silent-failure-hunter.md` for the pattern). Don't vendor unmodified — fork the file into this repo so changes don't drift.

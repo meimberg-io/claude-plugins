@@ -1,0 +1,9 @@
+{
+  "name": "review",
+  "version": "0.1.0",
+  "description": "PR review agents: silent-failure-hunter (error handling), code-reviewer (CLAUDE.md-aware, confidence-scored), comment-analyzer (doc accuracy). Vendored from anthropics/claude-plugins-official.",
+  "author": {
+    "name": "Oliver Meimberg",
+    "email": "oli@meimberg.io"
+  }
+}
