@@ -5,3 +5,7 @@ Querschnittliche Regeln, die in *jeder* Claude-Code-Session gelten — projektun
 ## Coding
 
 @coding/no-half-generalization.md
+
+## Meta
+
+@meta/rule-capture.md
